@@ -13,6 +13,9 @@ namespace :spree_roles do
       user.permissions = [permission2]
       admin.permissions = [permission1]
     end
+
+    desc "Create other roles and populate permissions for those roles"
+
     task :populate_other_roles => :environment do
       manager = Spree::Role.where(name: 'manager').first_or_create!
       customer_service = Spree::Role.where(name: 'customer service').first_or_create!
